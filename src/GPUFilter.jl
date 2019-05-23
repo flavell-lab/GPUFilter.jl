@@ -8,5 +8,8 @@ include("utils.jl")
 export
     gpu_imROF,
     compute_λ_filt,
-    filter_rof
+    filter_rof,
+
+    # kernels
+    kernel_rof
 end # module
