@@ -47,7 +47,7 @@ function kernel_rof(p, p_div, u, grad_u, grad_u_mag, img, λ, τ, size_x, size_y
     sync_threads()
 
     ## grad_u_mag
-    grad_u_mag[i,j] = sqrt(abs2(grad_u[i,j,1]) + abs2(grad_u[i,j,2]))
+    grad_u_mag[i,j] = CUDAnative.sqrt(abs2(grad_u[i,j,1]) + abs2(grad_u[i,j,2]))
 
     sync_threads()
 
