@@ -8,11 +8,11 @@ function gpu_imROF(img::Array{Float32,2}, λ, maxitr)
     b_n_y = Int(ceil(size_y / n_th)) # blocks y
 
     d_img = CuArray(img)
-    d_p = CuArrays.zeros(Float32, size_x, size_y, 2)
-    d_p_div = CuArrays.zeros(Float32, size_x, size_y)
-    d_u = CuArrays.zeros(Float32, size_x, size_y)
-    d_grad_u = CuArrays.zeros(Float32, size_x, size_y, 2)
-    d_grad_u_mag = CuArrays.zeros(Float32, size_x, size_y)
+    d_p = CUDA.zeros(Float32, size_x, size_y, 2)
+    d_p_div = CUDA.zeros(Float32, size_x, size_y)
+    d_u = CUDA.zeros(Float32, size_x, size_y)
+    d_grad_u = CUDA.zeros(Float32, size_x, size_y, 2)
+    d_grad_u_mag = CUDA.zeros(Float32, size_x, size_y)
 
     τ = 0.25 # see 2nd remark after proof of Theorem 3.1.
 
