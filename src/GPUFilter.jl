@@ -1,6 +1,6 @@
 module GPUFilter
 
-using Statistics, CUDAnative, CuArrays, Distributions
+using Statistics, CUDA, Distributions
 
 include("kernel.jl")
 include("caller.jl")
