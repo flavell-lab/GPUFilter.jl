@@ -11,7 +11,7 @@ Arguments
 """
 function gpu_imROF(img::Array{Float32,2}, λ, maxitr; n_th=16)
     # GPU version of imROF of Images package
-    size_x, size_y = size(img
+    size_x, size_y = size(img)
 
     b_n_x = Int(ceil(size_x / n_th)) # blocks x
     b_n_y = Int(ceil(size_y / n_th)) # blocks y
