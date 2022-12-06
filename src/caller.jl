@@ -1,8 +1,17 @@
-function gpu_imROF(img::Array{Float32,2}, λ, maxitr)
-    # GPU version of imROF of Images package
-    size_x, size_y = size(img)
+"""
+    gpu_imROF(img::Array{Float32,2}, λ, maxitr; n_th=16)
 
-    n_th = 16 # number of thread
+Performs total variation filtering using the ROF algorithm
+Arguments
+---------
+* `img`: image array to filterro
+* `λ`: filter regularization parameter (higher == more filtering)
+* `maxitr`: maximum number of iterations
+* `n_th`: number of CUDA threads (default: 16)
+"""
+function gpu_imROF(img::Array{Float32,2}, λ, maxitr; n_th=16)
+    # GPU version of imROF of Images package
+    size_x, size_y = size(img
 
     b_n_x = Int(ceil(size_x / n_th)) # blocks x
     b_n_y = Int(ceil(size_y / n_th)) # blocks y
